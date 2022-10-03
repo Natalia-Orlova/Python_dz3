@@ -11,3 +11,18 @@
 # out
 # [2, 2, 4, 8, 8]
 # [16, 16, 4]
+
+import random
+n = int(input("Введите положительное число: "))
+if n <= 0:
+    print("Введено некорректное значение, повторите попытку")
+else:
+    ls1 = list()
+    ls2 = list()
+    for i in range(0, n):
+        ls1.append(random.randint(0,10))
+    if n % 2 == 0:
+        for j in range(0, n):
+            ls2.append(ls1[j]*ls1[(n-1)-j])
+    print(ls1)
+    print(ls2)
