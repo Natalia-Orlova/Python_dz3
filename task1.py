@@ -14,7 +14,8 @@
 from random import sample
 def create_random_list(count):
     if count <= 0:
-        return "Введено некорректное значение, повторите попытку"
+        print("Введено некорректное значение, повторите попытку")
+        return []
     ls = sample(range(count*2), count)
     return(ls)
 
