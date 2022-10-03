@@ -12,17 +12,38 @@
 # [2, 2, 4, 8, 8]
 # [16, 16, 4]
 
-import random
-n = int(input("Введите положительное число: "))
-if n <= 0:
-    print("Введено некорректное значение, повторите попытку")
-else:
-    ls1 = list()
-    ls2 = list()
-    for i in range(0, n):
-        ls1.append(random.randint(0,10))
-    if n % 2 == 0:
-        for j in range(0, n):
-            ls2.append(ls1[j]*ls1[(n-1)-j])
-    print(ls1)
-    print(ls2)
+from random import sample
+
+def create_random_list(count):
+    if count <= 0:
+        return "Введено некорректное значение, повторите попытку"
+    ls = sample(range(count*2), count)
+    return(ls)
+
+def multiply_pairs(number):
+    ls1 = []
+    k = len(number)
+    for i in range(k//2):
+        ls1.append(number[i] * number[k-1-i])
+        
+    if k % 2 == 1:
+        ls1.append(number[k//2])
+    return(ls1)
+        
+
+numbers = create_random_list(int(input("Введите количество элементов: ")))
+print(numbers)
+res = multiply_pairs(numbers)
+print(res)
+
+
+# else:
+#     ls1 = list()
+#     ls2 = list()
+#     for i in range():
+#         ls1.append(random.randint(0,10))
+#     if n % 2 == 0:
+#         for j in range(0, n):
+#             ls2.append(ls1[j]*ls1[(n-1)-j])
+#     print(ls1)
+#     print(ls2)
